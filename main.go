@@ -3,6 +3,8 @@ package main
 import (
 	"net/http"
 
+	"github.com/Mersock/golang-echo-postgres-restful-api/controller"
+	"github.com/Mersock/golang-echo-postgres-restful-api/storage"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
@@ -10,6 +12,7 @@ import (
 func main() {
 	//echo  instance
 	e := echo.New()
+	storage.NewDB()
 
 	//middleware
 	e.Use(middleware.Logger())
@@ -17,6 +20,7 @@ func main() {
 
 	//router
 	e.GET("/", hello)
+	e.GET("/students", controller.GetStudents)
 
 	//start server
 	e.Logger.Fatal(e.Start((":3000")))
