@@ -16,6 +16,6 @@ func GetDBType() string {
 }
 
 func GetPostgresConn() string {
-	dbBase := fmt.Sprintf("host=%s port=%s user=%s dbname=%s password=%s sslmode=disable", DBHost, DBPort, DBUser, DBName, DBPassword)
+	dbBase := fmt.Sprintf("host=%s port=%s user=%s dbname=%s password=%s sslmode=disable TimeZone=Asia/Bangkok", DBHost, DBPort, DBUser, DBName, DBPassword)
 	return dbBase
 }
